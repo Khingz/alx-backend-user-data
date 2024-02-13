@@ -8,4 +8,3 @@ from typing import List, TypeVar
 class BasicAuth:
     """BasicAuth class
     """
-    pass
