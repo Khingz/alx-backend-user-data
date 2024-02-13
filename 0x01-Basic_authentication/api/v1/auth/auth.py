@@ -11,7 +11,7 @@ class Auth:
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """Comment
         """
-        if path is None or len(excluded_paths) < 1:
+        if path is None or len(excluded_paths) == 0:
             return True
         if path.endswith('/'):
             path = path
