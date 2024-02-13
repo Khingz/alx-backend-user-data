@@ -26,7 +26,10 @@ def before_request_handler():
     """
     if auth is None:
         return
-    ex_path = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
+    ex_path = [
+            '/api/v1/status/',
+            '/api/v1/unauthorized/',
+            '/api/v1/forbidden/']
     if auth.require_auth(request.path, ex_path):
         return
     if auth.authorization_header(request):
