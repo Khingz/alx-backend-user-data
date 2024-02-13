@@ -26,9 +26,9 @@ class Auth:
     def authorization_header(self, request=None) -> str:
         """Comment
         """
-        if request is None or 'Authorization' not in request.header:
+        if request is None:
             return None
-        return request.header['Authorization']
+        return request.headers.get('Authorization', None)
 
     def current_user(self, request=None) -> TypeVar('User'):
         """Coment
