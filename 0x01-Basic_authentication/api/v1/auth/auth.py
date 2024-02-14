@@ -8,7 +8,11 @@ from typing import List, TypeVar
 class Auth:
     """Auth class
     """
-    def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
+    def require_auth(
+            self,
+            path: str,
+            excluded_paths: List[str]
+            ) -> bool:
         """Comment
         """
         if path is None or excluded_paths is None:
@@ -20,7 +24,9 @@ class Auth:
         else:
             path = '{}/'.format(path)
         for paths in excluded_paths:
-            if paths.endswith('*') and paths.startswith(path):
+            if paths.endswith('*') and path.startswith(
+                    paths[:-1]
+                    ):
                 return False
             if not paths.endswith('*') and paths == path:
                 return False
