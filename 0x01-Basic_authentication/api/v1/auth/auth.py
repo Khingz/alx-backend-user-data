@@ -19,9 +19,12 @@ class Auth:
             path = path
         else:
             path = '{}/'.format(path)
-        if path not in excluded_paths:
-            return True
-        return False
+        for paths in excluded_paths:
+            if paths.endswith('*') and paths.startswith(path):
+                return False
+            if not paths.endswith('*') and paths == path:
+                return False
+        return True
 
     def authorization_header(self, request=None) -> str:
         """Comment
