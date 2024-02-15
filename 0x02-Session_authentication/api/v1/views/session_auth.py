@@ -24,10 +24,10 @@ def login():
         msg = 'password missing'
         return jsonify({'error': msg}), 400
     try:
-            found_users = User.search({'email': email})
+        found_users = User.search({'email': email})
     except Exception:
-            msg = 'no user found for this email'
-            return jsonify({"error": msg}), 404
+        msg = 'no user found for this email'
+        return jsonify({"error": msg}), 404
     if not found_users:
         msg = 'no user found for this email'
         return jsonify({"error": msg}), 404
