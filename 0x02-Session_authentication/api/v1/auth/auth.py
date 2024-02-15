@@ -3,6 +3,7 @@
 """
 from flask import request
 from typing import List, TypeVar
+import os
 
 
 class Auth:
@@ -43,3 +44,12 @@ class Auth:
         """Coment
         """
         return None
+
+    def session_cookie(self, request=None):
+        """Handles session cookie
+        """
+        if request is None:
+            return None
+        cookie_name = os.environ.get('SESSION_NAME')
+        session = request.cookies.get(cookie_name, None)
+        return session
