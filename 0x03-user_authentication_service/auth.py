@@ -49,4 +49,4 @@ class Auth:
     def _generate_uuid():
         """ Generates uuid string
         """
-        return uuid.uuid4()
+        return str(uuid.uuid4())
