@@ -65,7 +65,7 @@ class DB:
                     if key not in column_names:
                         raise ValueError
                 for key, value in kwargs.items():
-                    user.__dict__[key] = value
+                    setattr(user, key, value)
                 session = self._session
                 session.commit()
         return None
