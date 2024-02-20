@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """DB module
 """
 from sqlalchemy import create_engine
@@ -56,4 +57,4 @@ class DB:
     def update_user(self, user_id, **kwargs):
         """Updates a user
         """
-
+        pass
