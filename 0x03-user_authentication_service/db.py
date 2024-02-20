@@ -57,7 +57,7 @@ class DB:
     def update_user(self, user_id: str, **kwargs) -> None:
         """Updates a user
         """
-        if user_id:
+        if user_id and kwargs:
             user = self.find_user_by(id=user_id)
             column_names = User.__table__.columns.keys()
             if user:
@@ -68,4 +68,3 @@ class DB:
                     setattr(user, key, value)
                 session = self._session
                 session.commit()
-        return None
