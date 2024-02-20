@@ -85,7 +85,7 @@ class Auth:
             except Exception:
                 return None
 
-    def get_reset_password_token(email):
+    def get_reset_password_token(email: str) -> str:
         """ Generate token
         """
         if email:
