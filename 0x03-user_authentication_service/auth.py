@@ -46,7 +46,7 @@ class Auth:
             except Exception:
                 return False
 
-    def _generate_uuid():
+    def _generate_uuid() -> str:
         """ Generates uuid string
         """
         UUID = uuid.uuid4()
