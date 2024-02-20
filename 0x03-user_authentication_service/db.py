@@ -40,7 +40,7 @@ class DB:
         session.commit()
         return new_user
 
-    def find_user_by(self, **kwargs):
+    def find_user_by(self, **kwargs) -> User:
         """Find a user
         """
         if not kwargs:
