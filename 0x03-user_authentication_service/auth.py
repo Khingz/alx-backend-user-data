@@ -62,6 +62,5 @@ class Auth:
             except Exception:
                 return None
             session_id = _generate_uuid()
-            user_id = user.__dict__.get(id)
-            self._db.update_user(user_id, session_id=session_id)
+            self._db.update_user(user.id, session_id=session_id)
             return session_id
