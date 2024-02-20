@@ -22,7 +22,6 @@ def _generate_uuid() -> str:
     return str(UUID)
 
 
-
 class Auth:
     """Class for user authentication
     """
@@ -53,3 +52,16 @@ class Auth:
                 return False
             except Exception:
                 return False
+
+    def create_session(self, email: str) -> str:
+        """Create a session
+        """
+        if email:
+            try:
+                user = self._db.find_user_by(email=email)
+            except Exception:
+                return None
+            session_id = _generate_uuid()
+            user_id = user.__dict__.get(id)
+            self._db.update_user(user_id, session_id=session_id)
+            return session_id
